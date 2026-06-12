@@ -1,0 +1,10 @@
+Options -Indexes
+RewriteEngine On
+
+# Rediriger tout vers public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/$1 [QSA,L]
+
+# Si accès direct à public/ sans sous-chemin
+RewriteRule ^$ public/index.php [QSA,L]
